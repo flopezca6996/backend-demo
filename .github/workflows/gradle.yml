@@ -34,7 +34,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: $JAVA_VERSION
-          distribution: 'corretto'
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v1
         with:
