@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Make gradle executable
-      - script:
-        - chmod +x gradlew
+        run: |
+          chmod +x gradlew
 
   dependencies-analysis:
     needs: setup
