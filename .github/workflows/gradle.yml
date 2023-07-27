@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: Make gradle executable
         run: |
-          ls -la
+          ls
           chmod +x gradlew
 
   dependencies-analysis:
