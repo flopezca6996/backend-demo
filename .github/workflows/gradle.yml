@@ -11,6 +11,7 @@ permissions:
 
 env:
   JAVA_VERSION: 17
+  SYNK_GRADLE_JAVA_ACTION: "snyk/actions/gradle-jdk17@master"
 
 jobs:
   dependencies-analysis:
@@ -20,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
-        uses: "snyk/actions/gradle-jdk${{ env.JAVA_VERSION }}@master"
+        uses: ${{ env.SYNK_GRADLE_JAVA_ACTION }}
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
@@ -46,7 +47,7 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
-        uses: "snyk/actions/gradle-jdk${{ env.JAVA_VERSION }}@master"
+        uses: ${{ env.SYNK_GRADLE_JAVA_ACTION }}
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
