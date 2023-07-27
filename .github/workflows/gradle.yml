@@ -13,8 +13,12 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - name: LS
-        run: ls
+      - name: Print debug information
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of the directory:"
+          ls
 
   dependencies-analysis:
     needs: setup
