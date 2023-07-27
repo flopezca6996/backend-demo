@@ -14,14 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Print debug information
-        run: |
-          echo "Current directory:"
-          pwd
-          echo "Contents of the directory:"
-          ls -a
-          cd ..
-          ls -a
+      - name: Update gradle permissions
+        run: chmod +x gradlew
 
   dependencies-analysis:
     needs: setup
@@ -29,7 +23,6 @@ jobs:
     environment:
       name: development
     steps:
-      - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: "snyk/actions/gradle-jdk17@master"
         env:
@@ -41,7 +34,6 @@ jobs:
     environment:
       name: development
     steps:
-      - uses: actions/checkout@v3
       - name: Set up JDK ${{ env.JAVA_VERSION }}
         uses: actions/setup-java@v1
         with:
@@ -57,7 +49,6 @@ jobs:
     environment:
       name: development
     steps:
-      - uses: actions/checkout@master
       - name: Run Snyk to check for vulnerabilities
         uses: "snyk/actions/gradle-jdk17@master"
         env:
