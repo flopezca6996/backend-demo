@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-permissions:
-  contents: read
-
 env:
   JAVA_VERSION: 17
 
@@ -19,6 +16,7 @@ jobs:
       - name: Make gradle executable
         run: |
           ls -la
+          chmod +x gradlew
 
   dependencies-analysis:
     needs: setup
