@@ -13,10 +13,8 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
-      - name: Make gradle executable
-        run: |
-          ls
-          chmod +x gradlew
+      - name: LS
+        run: ls
 
   dependencies-analysis:
     needs: setup
