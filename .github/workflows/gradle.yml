@@ -13,7 +13,15 @@ env:
   JAVA_VERSION: 17
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make gradle executable
+      - script:
+        - chmod +x gradlew
+
   dependencies-analysis:
+    needs: setup
     runs-on: ubuntu-latest
     environment:
       name: development
@@ -25,6 +33,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
   build:
+    needs: setup
     runs-on: ubuntu-latest
     environment:
       name: development
@@ -40,6 +49,7 @@ jobs:
           arguments: build
 
   code-security:
+    needs: setup
     runs-on: ubuntu-latest
     environment:
       name: development
