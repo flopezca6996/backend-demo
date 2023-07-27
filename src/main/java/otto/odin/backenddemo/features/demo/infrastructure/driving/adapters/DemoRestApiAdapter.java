@@ -1,4 +1,4 @@
-package otto.odin.backenddemo.features.demo.infrastructure.driven.adapters;
+package otto.odin.backenddemo.features.demo.infrastructure.driving.adapters;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
